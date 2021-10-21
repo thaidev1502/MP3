@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Documentation - phpSound - Music Sharing Platform</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+	<style type="text/css" media="screen">
+	@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+	body { 
+		font-family: 'Roboto', sans-serif; 
+		font-size: 14px; 
+		background: #e8ebed; 
+		color: #000; 
+	}
+	h1 { color: #666;
+		font-weight: normal;
+	}
+	h2 {
+		color: #666;
+		font-weight: normal;
+		margin-top: 0;
+	}
+	h3 {
+		color: #222;
+		font-weight: normal;
+		margin: 0 0 10px 0;
+	}
+	p, table, hr, .box { margin-bottom:25px; }
+	.box p { margin-bottom:10px; }
+	a { color: #F44;}
+	a:hover { color: #c12525;}
+	.row-body {
+		border-bottom: 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 900px;
+		overflow: auto;
+	}
+	.message-container {
+		padding: 0 20px 10px 10px;
+	}
+	.message-form-content {
+		box-shadow: 0px 1px 1px #CCC;
+		border: 1px solid #BFBFBF;
+		background: #FFF;
+		color: #6B6B6B;
+		border-radius: 3px;
+		overflow: auto;
+	}
+	.message-inner {
+		padding: 10px;
+		overflow: auto;
+	}
+	.divider {
+		height: 1px;
+		width: 100%;
+		background: #DEE0E3;
+		float: left;
+	}
+	.logo {
+		float: left;
+		vertical-align: middle;
+		line-height: 38px;
+		font-size: 20px;
+	}
+	.doc-menu {
+		float: right;
+		margin: 10px 0;
+		text-align: right;
+	}
+	.doc-menu a {
+		font-weight: bold;
+		margin-left: 20px;
+		text-decoration: none;
+	}
+	.about {
+		text-align: right;
+		width: 100%;
+	}
+	.thank-you {
+		margin: 10px;
+		background: #DFDFDF;
+		color: #5A5A5A;
+		overflow: auto;
+		float: left;
+		padding: 10px;
+		font-weight: bold;
+	}
+	.inner-inner {
+		padding: 0 10px;
+	}
+	.developers-color {
+		color: #F44;
+	}
+	</style>
+</head>
+
+<body id="top">
+	<div class="row-body">
+		<div class="message-container">
+			<div class="message-form-content">
+				<div class="message-inner">
+					<a href="http://phpSound.com" target="_blank"><div class="logo">phpSound</div></a>
+					<div class="doc-menu"><a href="#preparing">Preparing</a> <a href="#installation">Installation</a> <a href="#configuration">Configuration</a> <a href="#faq">Faq</a> <a href="#developers">Developers</a></div>
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+					<div class="about">Documentation by <a href="http://codecanyon.net/user/codefir" target="_blank">Codefir</a></div>
+				</div>
+				<div class="divider"></div>
+					<div class="thank-you">Thank you for purchasing <a href="http://phpsound.com" target="_blank">phpSound</a> software. If you have any questions that are beyond the scope of this documentation, please feel free to contact us trough <a href="http://codecanyon.net/user/codefir#contact" target="_blank">this form</a>.</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+				
+					<h2 id="toc" class="alt">Table of Contents</h2>
+					<ol class="alpha">
+						<li><a href="#preparing">Preparing...</a></li>
+						<li><a href="#installation">Installation process...</a></li>
+						<li><a href="#configuration">Configuration process...</a></li>
+						<li><a href="#faq">FAQ...</a></li>
+						<li><a href="#developers">Developers...</a></li>
+					</ol>
+					
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+					
+					<h3 id="preparing"><strong>1. Preparing</strong> - <a href="#top">top</a></h3>
+					Make sure you have the following:
+					<ol>
+						<li><strong>Apache 2</strong> or higher, with:
+						<ul><li>mod_rewrite</li></ul>
+						</li>
+						<li><strong>PHP 7</strong> or higher, with:
+						<ul><li>MySQLi</li><li>cURL</li><li>OpenSSL</li><li>GD</li><li>mbstring</li></ul>
+						</li>
+						<li><strong>MySQL 5</strong> or higher</li>
+					</ol>
+
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+
+					<h3 id="installation"><strong>2. Installation Process</strong> - <a href="#top">top</a></h3>
+					<ol>
+						<li>Import the <strong>phpSound.SQL</strong> file from the "MySQL" folder into your MySQL database using the import function available in MySQL.</li>
+						<li>
+							With a text editor open the following file located inside the 'Script/includes/' folder: <strong>config.php</strong>, and replace what's between the quotes (e.g: 'YOURDBNAME') with your MySQL settings:
+							<pre>
+	$CONF['user'] = 'YOURDBUSER';
+	$CONF['pass'] = 'YOURDBPASS';
+	$CONF['name'] = 'YOURDBNAME';
+	$CONF['url'] = 'http://yourdomain.com';
+	$CONF['email'] = 'notifications@yourdomain.com';
+	</pre>
+						</li>
+						<li>
+							Upload the files from the "Script" folder on the FTP server (usually <strong>public_html</strong> folder when installing it on a domain).
+						</li>
+						<li>
+							Set the <strong>CHMOD</strong> to 777, 775 or 775 (depending on the server configuration) to the following folders: <strong>'/cache'</strong>, <strong>'/uploads'</strong> and its subfolders: <strong>'/uploads/avatars', '/uploads/covers', '/uploads/media', '/uploads/tracks'</strong> and <strong>'/themes/theme-name/images'</strong>.
+						</li>
+					</ol>
+				
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+					
+					<h3 id="configuration"><strong>3. Configuration</strong> - <a href="#top">top</a></h3>
+
+					The default username for the Admin is "<strong>admin</strong>", and the password is "<strong>password</strong>" without quotes (the admin panel link is located in footer).<br><br>
+					
+					<div class="inner-inner">
+						<li><strong>Dashboard</strong></li>
+						Shows you quick statistics and performance of the current day along with graphs for the last 7 days, site information and useful links.<br><br>
+						
+						<li><strong>Site Settings</strong></li>
+						Allows you to change the website settings such as general, registration, emails and limits.<br>
+						
+						<ol>Enabling <strong><span style="color: #3B579D;">Facebook</span></strong> Login
+							<li>Go to <a href="https://developers.facebook.com" target="_blank" rel="nofollow">developers.facebook.com</a> and create a Add a new App.</li>
+							<li>Select the <strong>Facebook Login</strong> product and click <strong>Set up</strong> and choose the <strong>Web</strong> Platform.</li>
+							<li>On Step 1 add your Site URL and click <strong>Save</strong>. Skip the rest of the steps.</li>
+							<li>From the sidebar, under <strong>Facebook Login</strong> click on <strong>Settings</strong> and <strong style="color: #cc0000;">disable</strong> <strong>Client OAuth Login</strong> and <strong>Use Strict Mode for Redirect URIs</strong></li>
+							<li>Under <strong>Valid OAuth redirect URIs</strong> add the following URL: <strong>https://yourdomain.com/requests/connect.php?facebook=true</strong> (replace yourdomain.com with your own domain name), and <strong>Save</strong> the changes.</li>
+							<li>Go to your App <strong>Settings</strong> page, and copy the <strong>App ID</strong> and <strong>App Secret</strong> keys which you can use to enable <strong>Facebook Login</strong>.</li>
+						</ol>
+						
+						<ol>Enabling <strong><span style="color: #f1aa11;">Amazon S3</span></strong> Storage
+							<li><a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html" target="_blank" rel="nofollow">Sign up for Amazon S3</a></li>
+							<li><a href="http://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html" target="_blank" rel="nofollow">Create a Bucket</a></li>
+							<li><a href="https://console.aws.amazon.com/iam/home#/security_credential" target="_blank" rel="nofollow">Get your Access Key ID and Secret Access Key</a></li>
+							<li>You can now enable the Amazon S3 storage from the Admin Panel by adding the <strong>Key</strong>, <strong>Secret</strong>, <strong>Region</strong>, <strong>Bucket</strong> and enabling <strong>Amazon S3 Storage</strong>.</li>
+						</ol>
+						
+						<li><strong>Pro Accounts</strong></li>
+						Allows you to enable or disable Pro Accounts, change settings such as upload size, monthly plans, currency, etc.
+							<ol>How to enable <span style="color: #033189;"><strong>Pay</strong></span><span style="color: #029de0;"><strong>Pal</strong></span> Payments
+								<li>Login into your PayPal account and click on <a href="https://www.paypal.com/webapps/customerprofile/summary.view" target="_blank">Profile</a>.</li>
+								<li>Then go to <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_profile-display-handler&tab_id=SELLER_PREFERENCES">My Selling Tools</a> and Update your <a href="https://www.paypal.com/cgi-bin/customerprofileweb?cmd=%5fprofile%2dapi%2daccess&upgrade.x=1">API Access</a>.</li>
+								<li>Pick Option 2 which is <strong>Request API credentials</strong>.</li>
+								<li>Now choose <strong>Request API signature</strong>, hit <strong>Agree and Submit</strong> and copy the "API Username", "API Password" and "Signature".</li>
+								<li>You can now enable Pro Accounts from the Admin Panel by adding the "API Username", "API Password", and "API Signature" and enabling Pro Accounts.</li>
+							</ol>
+							
+							<ol>
+								How to enable <span style="color: #033189;"><strong>Pay</strong></span><span style="color: #029de0;"><strong>Pal</strong></span> IPN
+								<li>Login into your PayPal account and click on <a href="https://www.paypal.com/webapps/customerprofile/summary.view" target="_blank">Profile</a></li>
+								<li>Then go to <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_profile-display-handler&tab_id=SELLER_PREFERENCES">My Selling Tools</a> and Update your <a href="https://www.paypal.com/cgi-bin/customerprofileweb?cmd=_profile-ipn-notify">Instant payment notifications</a>.</li>
+								<li>Click the <strong>Choose IPN Settings</strong>, set <strong>Notification URL</strong> to http://<strong>yoursite.com</strong>/requests/listener.php and choose <strong>Receive IPN messages (Enabled)</strong>, save.</li>
+							</ol>
+							<ol><strong><a href="https://developer.paypal.com/docs/classic/api/adaptive-payments/ConvertCurrency_API_Operation/#currencycodelist-fields" target="_blank">List of supported currencies</a></strong></ol>
+							
+						<li><strong>Themes</strong></li>
+						Allows you to change the whole website layout, the current theme enabled is marked <span style="color: #3e7b1a;"><strong>Active</strong></span>.<br><br>
+						
+						<li><strong>Languages</strong></li>
+						Allows you to set the default website language.<br><br>
+						
+						<li><strong>Statistics</strong></li>
+						Advanced user and site statistics User Registrations, Tracks, Comments, Reports, Likes, Earnings and more.<br><br>
+						
+						<li><strong>Password</strong></li>
+						Allows you to change the Administrator Password.<br><br>
+						
+						<li><strong>Manage Users</strong></li>
+						Allows you to edit users, promote, suspend, delete accounts, view transaction history and more.<br><br>
+						
+						<li><strong>Manage Payments</strong></li>
+						Allows you to view the payments details, suspend or enable a certain payment.<br><br>
+						
+						<li><strong>Manage Reports</strong></li>
+						Allows you to manage the reported Tracks and Comments, like suspending or deleting them.<br><br>
+						
+						<li><strong>Manage Categories</strong></li>
+						Allows you to add certain categories that will be displayed on the "Explore" page.<br><br>
+						
+						<li><strong>Manage Ads</strong></li>
+						Allows you to add Advertisments in certain places on the website.<br><br>
+						
+						<li><strong>Info Pages</strong></li>
+						Create informative pages such as Contact, About, etc. for your website.<br><br>
+						
+						<li><strong>Newsletter</strong></li>
+						Allows you to send a newsletter email to all the registered users.<br><br>
+					</div>
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+				
+					<h3 id="faq"><strong>4. FAQ</strong> - <a href="#top">top</a></h3>
+					
+					<ol>
+						<li><strong>Q:</strong> I want to modify a text or something about the design...<br>
+						<strong>A:</strong> You can change anything visual from the theme located in: <strong>/themes/theme-name</strong></li><br>
+						<li><strong>Q:</strong> I want to change the website's logo or site title.<br>
+						<strong>A:</strong> You can change the Logo or the Site title from the <strong>Admin Panel > Site Settings > General</strong> tab.</li><br>
+						<li><strong>Q:</strong> How are the Track Plays counted?<br>
+						<strong>A:</strong> Track plays are added at the end of the track.</li><br>
+						<li><strong>Q:</strong> The "Go Pro" suggestions don't appear on sidebar for new users.<br>
+						<strong>A:</strong> The widget will appear as soon as the user uploads a track.</li><br>
+						<li><strong>Q:</strong> What happens if I suspend a track due to a DMCA complain?<br>
+						<strong>A:</strong> The track won't be available to that user anymore (the track will remain on server), also both the copyright claimer and the abuser will be informed via email.</li><br>
+						<li><strong>Q:</strong> What happens if I delete a track due to a DMCA complain?<br>
+						<strong>A:</strong> The track will be permanently removed from your server.</li><br>
+						<li><strong>Q:</strong> What happens if I suspend a payment?<br>
+						<strong>A:</strong> The payment won't be taken in consideration by the software anymore, unless you Enable it back.</li><br>
+						<li><strong>Q:</strong> How are the Popular tracks being generated on the homepage?<br>
+						<strong>A:</strong> Popular tracks are being generated based on the amount of plays from the last 24 hours.</li><br>
+						<li><strong>Q:</strong> I want to change the Timezone for my website.<br>
+						<strong>A:</strong> You can add a custom Timezone by going to <strong>Admin Panel > Site Settings > General</strong> tab, the available list of timezones can be found at <a href="http://php.net/manual/ro/timezones.php" target="_blank">PHP Timezones</a>.</li><br>
+						<li><strong>Q:</strong> I have problems/questions related to the script, how can I contact you?<br>
+						<strong>A:</strong> You can contact us trough this <a href="http://codecanyon.net/user/codefir#contact" target="_blank">contact form</a>.</li>
+					</ol>
+				
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+				
+					<h3 id="developers"><strong>5. Developers</strong> - <a href="#top">top</a></h3>
+					As a developer, the only mandatory requirement is a valid phpSound license key.<br><br>
+					
+					<strong><h2 class="developers-color">Themes</h2></strong>
+					
+					<ul>
+						<li>Make a copy of the default 'sound' theme, and rename the folder into your theme's name.</li>
+						<li>Edit info.php with your own details [Author, Version, etc].</li>
+						<li>Edit icon.png with your own theme icon.</li>
+						<li>Have fun designing your theme.</li>
+					</ul>
+					
+					<strong>Recommendations</strong>:
+					<ul>
+						<li>Theme's folder name should not contain any white spaces.</li>
+						<li>Edit the original <strong>'sound'</strong> theme, as it contains all the strings and files required.</li>
+					</ul>
+					
+					<strong><h2 class="developers-color">Languages</h2></strong>					
+					<ul>
+						<li>Make a copy of the original 'english.php' file into the <strong>/languages/</strong> folder, rename it into your language and then start translating it.</li>
+						<li>If you're using special characters, save the file using UTF-8 without BOM.</li>
+					</ul>
+				</div>
+				<div class="divider"></div>
+				<div class="message-inner">
+				
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
